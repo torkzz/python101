@@ -151,13 +151,13 @@ reason - to have fundamentals on python
 num1 = float(input("Enter the first number: "))
 num2 = float(input("Enter the second number: "))
 
-sum_result = num1 + num2
-difference_result = num1 - num2
-product_result = num1 * num2
+sum_result = round(num1 + num2, 2)
+diff_result = round(num1 - num2, 2)
+mult_result = round(num1 * num2, 2)
 
 print()
 
 print(f"sum = {sum_result}")
-print(f"diff = {difference_result}")
-print(f"mult = {product_result}")
+print(f"diff = {diff_result}")
+print(f"mult = {mult_result}")
 
