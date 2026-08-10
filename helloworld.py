@@ -59,3 +59,19 @@ print(type (nearly_pi))
 almost_py = 22/7
 print(almost_py)
 print(type (almost_py))
+
+print()
+print()
+
+almost_py = 22//7
+rouded_pi = round(almost_py, 5)
+print(almost_py)
+print(type (almost_py))
+print()
+print()
+print(rouded_pi)
+print(type (rouded_pi))
+
+rouded_pi = round(almost_py, 2)
+print(rouded_pi)
+print(type (rouded_pi))
