@@ -148,16 +148,129 @@ reason - to have fundamentals on python
 
 # Module 1 Activity: Simple Mini Calculator
 
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
+# num1 = float(input("Enter the first number: "))
+# num2 = float(input("Enter the second number: "))
 
-sum_result = round(num1 + num2, 2)
-diff_result = round(num1 - num2, 2)
-mult_result = round(num1 * num2, 2)
+# sum_result = round(num1 + num2, 2)
+# diff_result = round(num1 - num2, 2)
+# mult_result = round(num1 * num2, 2)
 
-print()
+# print()
 
-print(f"sum = {sum_result}")
-print(f"diff = {diff_result}")
-print(f"mult = {mult_result}")
+# print(f"SUM = {sum_result}")
+# print(f"DIFFERENCE = {diff_result}")
+# print(f"PRODUCT = {mult_result}")
 
+# # Input
+# item = input("Enter item: ")
+# q = int(input("Enter quantity: "))
+# p= float(input("Enter price per item: "))
+
+# # Processing
+# subtotal = q * p
+
+# # Output
+# print()
+# print("="*10+"GROCERY RECEIPT"+"="*10)
+# print(f"Item: {item}")
+# print(f"Quantity: {q}")
+# print(f"Price: ₱{p:.2f}")
+# print(f"Subtotal: ₱{subtotal:.2f}")
+# print("="*25)
+
+
+# def myFunction():
+#     print("I'm in a function!")
+#     print("Still inside")
+
+# myFunction()
+# myFunction()
+# myFunction()
+# def Welcome(name):
+#     print(f"Welcome to Python Fundamentals for Business Systems and Automation, {name}")
+
+
+# Welcome("Kevin Paul")
+# Welcome("Cath Ablag")
+# Welcome("Danica Casino")
+# Welcome("Francis Madrid")
+
+
+
+# def Student(name, course):
+#     print(f"Student {name} is enrolled in {course}")
+
+# Student("Vic", "Python Fundamentals")
+
+
+# def calculate_average(prelim, midterm, final):
+#     average = (prelim + midterm + final) / 3
+#     print(f"Average: {average:.2f}")
+
+
+# calculate_average(91,100,79)
+# def add(a, b):
+#     return a + b
+
+# result = add(5, 3)
+
+# print(f"RESULT: {result}")
+
+# def multiply_return(a, b):
+#     return a * b
+
+
+# result = multiply_return(2, 3)
+
+# print(f"RESULT: {result}")
+
+
+# def difference(a, b):
+#     return a - b
+
+
+# result = difference(10, 3)
+
+# print(f"RESULT: {result}")
+
+
+
+# def square(n):
+#     return n * n
+
+# result = square(5)
+
+# print(f"RESULT: {result}")
+
+
+# def greet(name):
+#     return f"Hello, {name}"
+
+
+# print(greet("Vic"))
+
+
+# def divide(x, y):
+#     return x / y
+
+# c = divide(divide(12, 3), 2)
+
+# print(f"Nested Function: {c}")
+
+
+def is_passing(grade):
+    return grade >= 75
+
+
+result = is_passing(10)
+
+print(f"Passing: {result}")
+
+
+
+def square(number):
+    return number * number
+    print("This will not print")
+
+result = square(5)
+print(result)
