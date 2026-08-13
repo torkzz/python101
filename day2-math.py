@@ -1,53 +1,14 @@
-import math as m
+# Standard `math` Module
 
+import math
 
-print("1. Value of PI")
+print("math.pi:", math.pi)
+print("math.sqrt(25):", math.sqrt(25))
 
-print("m.pi =", m.pi)
+# Rounding functions
+print("math.ceil(4.2):", math.ceil(4.2))    # Round UP -> 5
+print("math.floor(4.8):", math.floor(4.8))  # Round DOWN -> 4
 
-print()
-
-print("5. Square Root")
-
-print("m.sqrt(25) =", m.sqrt(25))
-
-print()
-
-print("6. Ceiling Function") # ROUNDS UP to the nearest integer
-
-print("m.ceil(4.2) =", m.ceil(4.2))
-
-print()
-
-print("7. Floor Function") # Rounds DWON to the nearest integer
-
-print("m.floor(4.8) =", m.floor(4.8))
-
-print()
-
-
-# import module_a
-# import module_b
-# from module_a import calculate as calculate_a
-# from module_b import calculate as calculate_b
-
-# module_a.calculate()
-# module_b.calculate()
-
-print("8. Factorial Function")
-
-print("m.factorial(5) =", m.factorial(5)) # 5!
-
-print()
-
-
-# fabs () return the absolute value as FLOAT
-num1 = -10
-num2 = -7.5
-
-print(abs(num1))
-print(abs(num2))
-print()
-print()
-print(m.fabs(num1))
-print(m.fabs(num2))
+# Factorial and absolute value
+print("math.factorial(5):", math.factorial(5))
+print("math.fabs(-7.5):", math.fabs(-7.5))   # Absolute float value -> 7.5

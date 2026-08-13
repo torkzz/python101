@@ -1,61 +1,18 @@
-# round(number, decimal_places)
-print("3. round() Function")
+# Useful Built-in Functions
 
-print("round(3.14159, 2) =", round(3.14159, 2))
-
-print()
-
-# list
 numbers = [5, 10, 15, 20]
 
-print("Numbers:", numbers)
+# min() and max()
+print("Min:", min(numbers))
+print("Max:", max(numbers))
 
-print()
+# divmod() returns (quotient, remainder) tuple
+quotient, remainder = divmod(17, 5)
+print(f"divmod(17, 5) -> Quotient: {quotient}, Remainder: {remainder}")
 
-# min()
-print("4. min() Function")
+# all() returns True if ALL elements are truthy (non-zero/non-empty)
+print("all([1, 2, 3]):", all([1, 2, 3]))
+print("all([1, 0, 3]):", all([1, 0, 3]))
 
-print("Smallest number:", min(numbers))
-
-print()
-
-
-
-
-print("7. divmod() Function")
-
-print("divmod(17, 5) =", divmod(17, 5))
-
-print("Equivalent to:", (17 // 5, 17 % 5))
-
-# all()
-# Truthy values evaluate to true.
-# non-zero numbers
-# non-empty strings
-# non-empty lists
-#
-print()
-
-print("8. all() Function")
-
-print("all([1, 2, 3]) =", all([1, 2, 3]))
-
-print("all([1, -2, 3]) =", all([1, -2, 3]))
-
-print("all([1, 0, 3]) =", all([1, 0, 3]))
-
-print()
-
-
-# Falsy Values
-# 0
-# 0.0
-# empty strings "" or " "
-# empty lists
-# False
-# None == null
-
-# any()
-# Returns True
-# if AT LEAST ONE value
-# is truthy.
+# any() returns True if AT LEAST ONE element is truthy
+print("any([0, False, 5]):", any([0, False, 5]))
