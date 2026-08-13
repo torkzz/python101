@@ -1,9 +1,10 @@
 # Python 101 Learning Repository
 
-Structured Python lessons and interactive CLI tools.
+Structured Python lessons, coding standards, and interactive CLI tools.
 
 ## Folder Structure
 
+- `00_guidelines/`: PEP 8 standards, naming rules, type annotations, Pythonic idioms.
 - `01_basics/`: Variables, types, `02_interactive_inputs.py` (Interactive Calculator & Type Inspector).
 - `02_operators_and_collections/`: Operators, iterables, sets, math, random, strings, dict deep-dive, `09_interactive_gradebook.py` (CLI Gradebook).
 - `03_control_flow_and_data/`: Loops, generators, list comprehensions, regex, JSON handling.
@@ -11,9 +12,12 @@ Structured Python lessons and interactive CLI tools.
 - `05_external_libraries/`: External packages (`Faker` integration, structured mock data generation).
 - `projects/`: Interactive mini-projects (`interactive_quiz.py`, `number_guessing.py`, `cmatrix.py`).
 
-## How to Run Interactive Modules
+## How to Run Guidelines & Interactive Modules
 
 ```bash
+# View PEP 8 and Pythonic Rules
+python3 00_guidelines/00_pep8_rules.py
+
 # Type Inspector & Calculator
 python3 01_basics/02_interactive_inputs.py
 
