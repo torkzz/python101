@@ -1,547 +1,597 @@
-# # # # # # # # # # # # import re
+# # # # # # # # # # # # # # # import re
 
-# # # # # # # # # # # # # Common regex symbol
-# # # # # # # # # # # # # \d -- digit
-# # # # # # # # # # # # # \w -- word character
-# # # # # # # # # # # # # \s -- whitespace
-# # # # # # # # # # # # # .  -- any character
-# # # # # # # # # # # # # +  -- one or more
-# # # # # # # # # # # # # *  -- zero or more
-# # # # # # # # # # # # # ?  -- optional
+# # # # # # # # # # # # # # # # Common regex symbol
+# # # # # # # # # # # # # # # # \d -- digit
+# # # # # # # # # # # # # # # # \w -- word character
+# # # # # # # # # # # # # # # # \s -- whitespace
+# # # # # # # # # # # # # # # # .  -- any character
+# # # # # # # # # # # # # # # # +  -- one or more
+# # # # # # # # # # # # # # # # *  -- zero or more
+# # # # # # # # # # # # # # # # ?  -- optional
+# # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # text = "My contact number is 0917-123-4567"
+
+
+
+# # # # # # # # # # # # # # # # result= re.findall(r"\d", text)
+# # # # # # # # # # # # # # # # print (result)
+# # # # # # # # # # # # # # # # print (type(result))
+
+
+
+# # # # # # # # # # # # # # # # result= re.findall(r"\d+", text)
+# # # # # # # # # # # # # # # # print (result)
+# # # # # # # # # # # # # # # # print (type(result))
+
+
+
+# # # # # # # # # # # # # # # text = """
+# # # # # # # # # # # # # # # Name: Kevin Paul
+# # # # # # # # # # # # # # # Contact: 0917-123-4567
+# # # # # # # # # # # # # # # Email: kevin@gmail.com
+# # # # # # # # # # # # # # # Age: 25
+# # # # # # # # # # # # # # # Student ID: 2025-001
+# # # # # # # # # # # # # # # """
+
+# # # # # # # # # # # # # # # # digits = re.findall(r"\d+", text)
+# # # # # # # # # # # # # # # # print(digits)
+
+
+# # # # # # # # # # # # # # # # phone_pattern = r"\d{4}-\d{3}-\d{4}"
+# # # # # # # # # # # # # # # # phones = re.findall(phone_pattern, text)
+# # # # # # # # # # # # # # # # print(phones)
+
+
+# # # # # # # # # # # # # # # # email_pattern = r"\S+@\S*"
+# # # # # # # # # # # # # # # # emails = re.findall(email_pattern, text)
+# # # # # # # # # # # # # # # # print(emails)
+
+
+# # # # # # # # # # # # # # # # result = re.search(r"\d+", text)
+# # # # # # # # # # # # # # # # result = re.search(r"\d+", text)
+
+# # # # # # # # # # # # # # # # print("Object:", result)
+# # # # # # # # # # # # # # # # print("Type:", type(result))
+# # # # # # # # # # # # # # # # print("Match:", result.group())
+# # # # # # # # # # # # # # # # print("Start:", result.start())
+# # # # # # # # # # # # # # # # print("End:", result.end())
+# # # # # # # # # # # # # # # # print("Span:", result.span())
+# # # # # # # # # # # # # # # # print(dir(result))
+# # # # # # # # # # # # # # # # # help(result)
+
+
+
+# # # # # # # # # # # # # # # # print(phone_number)
+# # # # # # # # # # # # # # # # \s+ characters before @
+# # # # # # # # # # # # # # # # email_pattern = r"\S+@\S+"
+
+# # # # # # # # # # # # # # # # emails = re.findall(email_pattern, text)
+# # # # # # # # # # # # # # # # print(emails)
+
+# # # # # # # # # # # # # # # # result = re.search(r"\d+", text)
+# # # # # # # # # # # # # # # # print(result.group())
+
+# # # # # # # # # # # # # # # # #fullmatch()
+
+# # # # # # # # # # # # # # # # result1 = re.fullmatch(r"\d+", text)
+# # # # # # # # # # # # # # # # print(result1)
+
+# # # # # # # # # # # # # # # sample = "Python123"
+
+# # # # # # # # # # # # # # # print(re.match(r"Python", sample))
+# # # # # # # # # # # # # # # print(re.search(r"123", sample))
+# # # # # # # # # # # # # # # print(re.findall(r"\d", sample))
+# # # # # # # # # # # # # # # print(re.findall(r"\w+", sample))
+
+
+
+# # # # # # # # # # # # # # # print("English :", "Hello")
+# # # # # # # # # # # # # # # print("Japanese:", "こんにちは")
+# # # # # # # # # # # # # # # print("Korean  :", "안녕하세요")
+# # # # # # # # # # # # # # # print("Chinese :", "你好")
+# # # # # # # # # # # # # # # print("Arabic  :", "مرحبا")
+
+# # # # # # # # # # # # # # # print()
+
+# # # # # # # # # # # # # # # print()
+
+# # # # # # # # # # # # # # # print("Fire Rocket Snake:")
+# # # # # # # # # # # # # # # print("🔥 🚀 🐍")
+
+# # # # # # # # # # # # # # # print("\u03A4")  # Τ → uppercase Tau
+# # # # # # # # # # # # # # # print("\u0393")  # Γ → uppercase Gamma
+# # # # # # # # # # # # # # # print("\u03A6")  # Φ → uppercase Phi
+
+# # # # # # # # # # # # # # # text = "Python 🔥"
+# # # # # # # # # # # # # # # encoded_text = text.encode('utf-8')
+
+# # # # # # # # # # # # # # # print(encoded_text)
+
+
+
+# # # # # # # # # # # # # # # # text2 = b"Python \xf0\x9f\x94\xa5"
+# # # # # # # # # # # # # # # # decode_text = text2.decode("utf-8")
+# # # # # # # # # # # # # # # # print(decode_text)
+
+
+
+
+# # # # # # # # # # # # # # # # print(ord('A'))
+# # # # # # # # # # # # # # # # print(chr(65))
+
+
+# # # # # # # # # # # # # # # # ord("👨‍👩‍👧‍👦")
+
+# # # # # # # # # # # # # # # # for number in range(1, 55295):
+# # # # # # # # # # # # # # # #     print(number, chr(number))
+# # # # # # # # # # # # # # # # print('こんにちは'.encode('ascii'))
+
+# # # # # # # # # # # # # # # # print('こんにちは'.encode('utf-8'))
+
+
+
+# # # # # # # # # # # # # # # with open('unicode_demo.txt', 'w', encoding='utf-8') as file:
+# # # # # # # # # # # # # # #     file.write('Hello python and hello 🌎')
+
+# # # # # # # # # # # # # # # print("File written successfully.")
+
+# # # # # # # # # # # # # # # with open('unicode_demo2.txt', 'w') as file:
+# # # # # # # # # # # # # # #     file.write('Hello python and hello 🌎')
+
+# # # # # # # # # # # # # # # print("File written successfully.")
+# # # # # # # # # # # # # # # with open('unicode_demo2.txt', 'a') as file:
+# # # # # # # # # # # # # # #     file.write('Hello python and hello 🌎')
+
+# # # # # # # # # # # # # # # import json
+
+# # # # # # # # # # # # # # # student = {
+# # # # # # # # # # # # # # #     'name': 'Kevin',
+# # # # # # # # # # # # # # #     'message': 'こんにちは',
+# # # # # # # # # # # # # # #     'emoji': '🔥 🐍'
+# # # # # # # # # # # # # # # }
+
+# # # # # # # # # # # # # # # # json.dumps() - Python object → JSON string
+# # # # # # # # # # # # # # # json_data = json.dumps(student, ensure_ascii=False)
+
+# # # # # # # # # # # # # # # print(json_data)
+
+# # # # # # # # # # # # # # # # json.loads() - JSON string → Python object
+# # # # # # # # # # # # # # # student_data = json.loads(json_data)
+
+# # # # # # # # # # # # # # # print(student_data)
+# # # # # # # # # # # # # # # print(student_data['name'])
+# # # # # # # # # # # # # # # print(student_data['message'])
+# # # # # # # # # # # # # # # print(student_data['emoji'])
+# # # # # # # # # # # # # # import json
+
+# # # # # # # # # # # # # # # student = {
+# # # # # # # # # # # # # # #     'name': 'Kevin',
+# # # # # # # # # # # # # # #     'message': 'こんにちは',
+# # # # # # # # # # # # # # #     'emoji': '🔥 🐍'
+# # # # # # # # # # # # # # # }
+
+# # # # # # # # # # # # # # # # json.dumps() → Python object to JSON string
+# # # # # # # # # # # # # # # json_data = json.dumps(student, ensure_ascii=False)
+
+# # # # # # # # # # # # # # # print(json_data)
+
+# # # # # # # # # # # # # # # # json.dump() → Python object directly to JSON file
+# # # # # # # # # # # # # # # with open('student.json', 'w', encoding='utf-8') as file:
+# # # # # # # # # # # # # # #     json.dump(student, file, ensure_ascii=False, indent=4)
+
+# # # # # # # # # # # # # # # print("JSON file created successfully.")
+
+
+# # # # # # # # # # # # # # # with open(
+# # # # # # # # # # # # # # #     'example.txt',
+# # # # # # # # # # # # # # #     'r',
+# # # # # # # # # # # # # # #     encoding='utf-8'
+# # # # # # # # # # # # # # # ) as file:
+
+# # # # # # # # # # # # # # #     for line_number, line in enumerate(file, start=1):
+
+# # # # # # # # # # # # # # #         print(
+# # # # # # # # # # # # # # #             f"{line_number}: {line.strip()}"
+# # # # # # # # # # # # # # #         )
+
+# # # # # # # # # # # # # # # print()
+
+
+# # # # # # # # # # # # # # with open(
+# # # # # # # # # # # # # #     'example.txt',
+# # # # # # # # # # # # # #     'r',
+# # # # # # # # # # # # # #     encoding='utf-8'
+# # # # # # # # # # # # # # ) as file:
+# # # # # # # # # # # # # #     print(type(file))
+
+# # # # # # # # # # # # # #     for line_number, line in enumerate(file, start=1):
+
+# # # # # # # # # # # # # #         print(
+# # # # # # # # # # # # # #             f"{line_number}: {line.strip()}"
+# # # # # # # # # # # # # #         )
+
+# # # # # # # # # # # # # # print()
+
+
+
+
+# # # # # # # # # # # # # # Exceptions
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # The following are the common types of Python exceptions.
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Exception            When It Occurs
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # SyntaxError          Python cannot parse your code due to invalid syntax
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # IndentationError     Subtype of SyntaxError; invalid indentation
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # AttributeError       Accessing a nonexistent attribute/method
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # NameError             Using an undefined variable
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # IndexError            Accessing invalid index in a sequence
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # TypeError             Wrong type for operation or function
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # ValueError            Correct type but inappropriate value
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # ZeroDivisionError     Division or modulo by zero
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # FileNotFoundError     File does not exist
+
+
+# # # # # # # # # # # # # # Wildcard except clauses
+# # # # # # # # # # # # # #
+# # # # # # # # # # # # # # Catch any exception without specifying the type.
+
+# # # # # # # # # # # # # # Simple program that demonstrates without handling
+# # # # # # # # # # # # # print("hello world")
+
+# # # # # # # # # # # # # # Output:
+# # # # # # # # # # # # # # SyntaxError: invalid syntax.
+# # # # # # # # # # # # # # Perhaps you forgot a comma?
+
+# # # # # # # # # # # # # try:
+# # # # # # # # # # # # #     print("hello world")
+# # # # # # # # # # # # # except:  # Wildcard clause
+# # # # # # # # # # # # #     print("Something went wrong: Invalid syntax!")
+
+# # # # # # # # # # # # # # Output:
+# # # # # # # # # # # # # # Something went wrong: Invalid syntax!
+
+# # # # # # # # # # # # # Getting Information on Exceptions
 # # # # # # # # # # # # #
+# # # # # # # # # # # # # When an exception occurs, it often carries details about the error:
+# # # # # # # # # # # # # the type of exception, e.g., SyntaxError, ZeroDivisionError.
 # # # # # # # # # # # # #
-# # # # # # # # # # # # # text = "My contact number is 0917-123-4567"
+# # # # # # # # # # # # # The following are some examples:
 
 
+# # # # # # # # # # # # # ValueError
 
-# # # # # # # # # # # # # result= re.findall(r"\d", text)
-# # # # # # # # # # # # # print (result)
-# # # # # # # # # # # # # print (type(result))
+# # # # # # # # # # # # try:
+# # # # # # # # # # # #     x = int("abc")  # causes ValueError
+# # # # # # # # # # # # except ValueError as e:
+# # # # # # # # # # # #     print("Error:", e)
 
+# # # # # # # # # # # # # Output:
+# # # # # # # # # # # # # Error: invalid literal for int() with base 10: 'abc'
 
 
-# # # # # # # # # # # # # result= re.findall(r"\d+", text)
-# # # # # # # # # # # # # print (result)
-# # # # # # # # # # # # # print (type(result))
+# # # # # # # # # # # # # ZeroDivisionError
 
+# # # # # # # # # # # # try:
+# # # # # # # # # # # #     result = 10 / 0  # causes ZeroDivisionError
+# # # # # # # # # # # # except ZeroDivisionError as e:
+# # # # # # # # # # # #     print("Error:", e)
 
+# # # # # # # # # # # # # Output:
+# # # # # # # # # # # # # Error: division by zero
 
-# # # # # # # # # # # # text = """
-# # # # # # # # # # # # Name: Kevin Paul
-# # # # # # # # # # # # Contact: 0917-123-4567
-# # # # # # # # # # # # Email: kevin@gmail.com
-# # # # # # # # # # # # Age: 25
-# # # # # # # # # # # # Student ID: 2025-001
-# # # # # # # # # # # # """
+# # # # # # # # # # # # Getting Information on Exceptions
+# # # # # # # # # # # #
+# # # # # # # # # # # # When an exception occurs, it often carries details about the error:
+# # # # # # # # # # # # the type of exception, e.g., SyntaxError, ZeroDivisionError.
+# # # # # # # # # # # #
+# # # # # # # # # # # # The following are some examples:
 
-# # # # # # # # # # # # # digits = re.findall(r"\d+", text)
-# # # # # # # # # # # # # print(digits)
 
+# # # # # # # # # # # # ValueError
 
-# # # # # # # # # # # # # phone_pattern = r"\d{4}-\d{3}-\d{4}"
-# # # # # # # # # # # # # phones = re.findall(phone_pattern, text)
-# # # # # # # # # # # # # print(phones)
+# # # # # # # # # # # try:
+# # # # # # # # # # #     x = int("abc")  # causes ValueError
+# # # # # # # # # # # except ValueError as e:
+# # # # # # # # # # #     print("Error:", e)
 
+# # # # # # # # # # # # Output:
+# # # # # # # # # # # # Error: invalid literal for int() with base 10: 'abc'
 
-# # # # # # # # # # # # # email_pattern = r"\S+@\S*"
-# # # # # # # # # # # # # emails = re.findall(email_pattern, text)
-# # # # # # # # # # # # # print(emails)
 
+# # # # # # # # # # # # ZeroDivisionError
 
-# # # # # # # # # # # # # result = re.search(r"\d+", text)
-# # # # # # # # # # # # # result = re.search(r"\d+", text)
+# # # # # # # # # # # try:
+# # # # # # # # # # #     result = 10 / 0  # causes ZeroDivisionError
+# # # # # # # # # # # except ZeroDivisionError as e:
+# # # # # # # # # # #     print("Error:", e)
 
-# # # # # # # # # # # # # print("Object:", result)
-# # # # # # # # # # # # # print("Type:", type(result))
-# # # # # # # # # # # # # print("Match:", result.group())
-# # # # # # # # # # # # # print("Start:", result.start())
-# # # # # # # # # # # # # print("End:", result.end())
-# # # # # # # # # # # # # print("Span:", result.span())
-# # # # # # # # # # # # # print(dir(result))
-# # # # # # # # # # # # # # help(result)
+# # # # # # # # # # # # Output:
+# # # # # # # # # # # # Error: division by zero
 
 
+# # # # # # # # # # # # The else Clause
+# # # # # # # # # # # #
+# # # # # # # # # # # # The else clause runs only if no exception occurs in the try block.
 
-# # # # # # # # # # # # # print(phone_number)
-# # # # # # # # # # # # # \s+ characters before @
-# # # # # # # # # # # # # email_pattern = r"\S+@\S+"
+# # # # # # # # # # # try:
+# # # # # # # # # # #     num = int(input("Enter a number: "))
+# # # # # # # # # # #     result = 10 / num
 
-# # # # # # # # # # # # # emails = re.findall(email_pattern, text)
-# # # # # # # # # # # # # print(emails)
+# # # # # # # # # # # except ValueError as v:
+# # # # # # # # # # #     print(v)
 
-# # # # # # # # # # # # # result = re.search(r"\d+", text)
-# # # # # # # # # # # # # print(result.group())
+# # # # # # # # # # # except ZeroDivisionError as e:
+# # # # # # # # # # #     print(e)
 
-# # # # # # # # # # # # # #fullmatch()
+# # # # # # # # # # # else:
+# # # # # # # # # # #     print("Success! Result is", result, ".")
 
-# # # # # # # # # # # # # result1 = re.fullmatch(r"\d+", text)
-# # # # # # # # # # # # # print(result1)
+# # # # # # # # # # #     # The finally Clause
+# # # # # # # # # # # #
+# # # # # # # # # # # # The finally clause always runs, no matter what happens
+# # # # # # # # # # # # in the try or except blocks.
+# # # # # # # # # # # #
+# # # # # # # # # # # # It is used for cleanup tasks, such as closing files,
+# # # # # # # # # # # # releasing resources, or ending connections.
 
-# # # # # # # # # # # # sample = "Python123"
 
-# # # # # # # # # # # # print(re.match(r"Python", sample))
-# # # # # # # # # # # # print(re.search(r"123", sample))
-# # # # # # # # # # # # print(re.findall(r"\d", sample))
-# # # # # # # # # # # # print(re.findall(r"\w+", sample))
+# # # # # # # # # # # try:
+# # # # # # # # # # #     f = open("data.txt", "r")
+# # # # # # # # # # #     content = f.read()
+# # # # # # # # # # #     print(content)
 
+# # # # # # # # # # # except FileNotFoundError as fe:
+# # # # # # # # # # #     print(fe)
 
+# # # # # # # # # # # finally:
+# # # # # # # # # # #     if 'f' in locals():
+# # # # # # # # # # #         f.close()  # Always closes the file
 
-# # # # # # # # # # # # print("English :", "Hello")
-# # # # # # # # # # # # print("Japanese:", "こんにちは")
-# # # # # # # # # # # # print("Korean  :", "안녕하세요")
-# # # # # # # # # # # # print("Chinese :", "你好")
-# # # # # # # # # # # # print("Arabic  :", "مرحبا")
 
-# # # # # # # # # # # # print()
-
-# # # # # # # # # # # # print()
-
-# # # # # # # # # # # # print("Fire Rocket Snake:")
-# # # # # # # # # # # # print("🔥 🚀 🐍")
-
-# # # # # # # # # # # # print("\u03A4")  # Τ → uppercase Tau
-# # # # # # # # # # # # print("\u0393")  # Γ → uppercase Gamma
-# # # # # # # # # # # # print("\u03A6")  # Φ → uppercase Phi
-
-# # # # # # # # # # # # text = "Python 🔥"
-# # # # # # # # # # # # encoded_text = text.encode('utf-8')
-
-# # # # # # # # # # # # print(encoded_text)
-
-
-
-# # # # # # # # # # # # # text2 = b"Python \xf0\x9f\x94\xa5"
-# # # # # # # # # # # # # decode_text = text2.decode("utf-8")
-# # # # # # # # # # # # # print(decode_text)
-
-
-
-
-# # # # # # # # # # # # # print(ord('A'))
-# # # # # # # # # # # # # print(chr(65))
-
-
-# # # # # # # # # # # # # ord("👨‍👩‍👧‍👦")
-
-# # # # # # # # # # # # # for number in range(1, 55295):
-# # # # # # # # # # # # #     print(number, chr(number))
-# # # # # # # # # # # # # print('こんにちは'.encode('ascii'))
-
-# # # # # # # # # # # # # print('こんにちは'.encode('utf-8'))
-
-
-
-# # # # # # # # # # # # with open('unicode_demo.txt', 'w', encoding='utf-8') as file:
-# # # # # # # # # # # #     file.write('Hello python and hello 🌎')
-
-# # # # # # # # # # # # print("File written successfully.")
-
-# # # # # # # # # # # # with open('unicode_demo2.txt', 'w') as file:
-# # # # # # # # # # # #     file.write('Hello python and hello 🌎')
-
-# # # # # # # # # # # # print("File written successfully.")
-# # # # # # # # # # # # with open('unicode_demo2.txt', 'a') as file:
-# # # # # # # # # # # #     file.write('Hello python and hello 🌎')
-
-# # # # # # # # # # # # import json
-
-# # # # # # # # # # # # student = {
-# # # # # # # # # # # #     'name': 'Kevin',
-# # # # # # # # # # # #     'message': 'こんにちは',
-# # # # # # # # # # # #     'emoji': '🔥 🐍'
-# # # # # # # # # # # # }
-
-# # # # # # # # # # # # # json.dumps() - Python object → JSON string
-# # # # # # # # # # # # json_data = json.dumps(student, ensure_ascii=False)
-
-# # # # # # # # # # # # print(json_data)
-
-# # # # # # # # # # # # # json.loads() - JSON string → Python object
-# # # # # # # # # # # # student_data = json.loads(json_data)
-
-# # # # # # # # # # # # print(student_data)
-# # # # # # # # # # # # print(student_data['name'])
-# # # # # # # # # # # # print(student_data['message'])
-# # # # # # # # # # # # print(student_data['emoji'])
-# # # # # # # # # # # import json
-
-# # # # # # # # # # # # student = {
-# # # # # # # # # # # #     'name': 'Kevin',
-# # # # # # # # # # # #     'message': 'こんにちは',
-# # # # # # # # # # # #     'emoji': '🔥 🐍'
-# # # # # # # # # # # # }
-
-# # # # # # # # # # # # # json.dumps() → Python object to JSON string
-# # # # # # # # # # # # json_data = json.dumps(student, ensure_ascii=False)
-
-# # # # # # # # # # # # print(json_data)
-
-# # # # # # # # # # # # # json.dump() → Python object directly to JSON file
-# # # # # # # # # # # # with open('student.json', 'w', encoding='utf-8') as file:
-# # # # # # # # # # # #     json.dump(student, file, ensure_ascii=False, indent=4)
-
-# # # # # # # # # # # # print("JSON file created successfully.")
-
-
-# # # # # # # # # # # # with open(
-# # # # # # # # # # # #     'example.txt',
-# # # # # # # # # # # #     'r',
-# # # # # # # # # # # #     encoding='utf-8'
-# # # # # # # # # # # # ) as file:
-
-# # # # # # # # # # # #     for line_number, line in enumerate(file, start=1):
-
-# # # # # # # # # # # #         print(
-# # # # # # # # # # # #             f"{line_number}: {line.strip()}"
-# # # # # # # # # # # #         )
-
-# # # # # # # # # # # # print()
-
-
-# # # # # # # # # # # with open(
-# # # # # # # # # # #     'example.txt',
-# # # # # # # # # # #     'r',
-# # # # # # # # # # #     encoding='utf-8'
-# # # # # # # # # # # ) as file:
-# # # # # # # # # # #     print(type(file))
-
-# # # # # # # # # # #     for line_number, line in enumerate(file, start=1):
-
-# # # # # # # # # # #         print(
-# # # # # # # # # # #             f"{line_number}: {line.strip()}"
-# # # # # # # # # # #         )
-
-# # # # # # # # # # # print()
-
-
-
-
-# # # # # # # # # # # Exceptions
+# # # # # # # # # # # Using Exceptions for Flow Control
 # # # # # # # # # # #
-# # # # # # # # # # # The following are the common types of Python exceptions.
-# # # # # # # # # # #
-# # # # # # # # # # # Exception            When It Occurs
-# # # # # # # # # # #
-# # # # # # # # # # # SyntaxError          Python cannot parse your code due to invalid syntax
-# # # # # # # # # # #
-# # # # # # # # # # # IndentationError     Subtype of SyntaxError; invalid indentation
-# # # # # # # # # # #
-# # # # # # # # # # # AttributeError       Accessing a nonexistent attribute/method
-# # # # # # # # # # #
-# # # # # # # # # # # NameError             Using an undefined variable
-# # # # # # # # # # #
-# # # # # # # # # # # IndexError            Accessing invalid index in a sequence
-# # # # # # # # # # #
-# # # # # # # # # # # TypeError             Wrong type for operation or function
-# # # # # # # # # # #
-# # # # # # # # # # # ValueError            Correct type but inappropriate value
-# # # # # # # # # # #
-# # # # # # # # # # # ZeroDivisionError     Division or modulo by zero
-# # # # # # # # # # #
-# # # # # # # # # # # FileNotFoundError     File does not exist
+# # # # # # # # # # # Sometimes you can use exceptions to manage the flow of your program,
+# # # # # # # # # # # especially in cases where an operation may fail.
+
+# # # # # # # # # # while True:
+# # # # # # # # # #     try:
+# # # # # # # # # #         user_input = input("Enter a positive integer: ")
+# # # # # # # # # #         n = int(user_input)  # Might raise ValueError
+
+# # # # # # # # # #         if n > 0:
+# # # # # # # # # #             break  # Exit loop if input is valid
+
+# # # # # # # # # #     except ValueError:
+# # # # # # # # # #         print(f'"{user_input}" cannot be converted to an int!')
+
+# # # # # # # # # # print(f'You have entered {n}, a positive integer.')
 
 
-# # # # # # # # # # # Wildcard except clauses
-# # # # # # # # # # #
-# # # # # # # # # # # Catch any exception without specifying the type.
 
-# # # # # # # # # # # Simple program that demonstrates without handling
-# # # # # # # # # # print("hello world")
-
-# # # # # # # # # # # Output:
-# # # # # # # # # # # SyntaxError: invalid syntax.
-# # # # # # # # # # # Perhaps you forgot a comma?
-
-# # # # # # # # # # try:
-# # # # # # # # # #     print("hello world")
-# # # # # # # # # # except:  # Wildcard clause
-# # # # # # # # # #     print("Something went wrong: Invalid syntax!")
-
-# # # # # # # # # # # Output:
-# # # # # # # # # # # Something went wrong: Invalid syntax!
-
-# # # # # # # # # # Getting Information on Exceptions
+# # # # # # # # # # Raising your Own Exception
 # # # # # # # # # #
-# # # # # # # # # # When an exception occurs, it often carries details about the error:
-# # # # # # # # # # the type of exception, e.g., SyntaxError, ZeroDivisionError.
+# # # # # # # # # # You can manually raise an exception using the raise keyword.
 # # # # # # # # # #
-# # # # # # # # # # The following are some examples:
+# # # # # # # # # # Syntax:
+# # # # # # # # # # raise ExceptionType("Error message")
+# # # # # # # # # #
+# # # # # # # # # # raise: signal errors manually.
+# # # # # # # # # # ExceptionType: can be built-in (like ValueError)
+# # # # # # # # # #                or a custom exception class.
+# # # # # # # # # # "Error message": a description of what went wrong.
 
 
-# # # # # # # # # # ValueError
+# # # # # # # # # def check_age(age):
+# # # # # # # # #     if age < 0:
+# # # # # # # # #         raise ValueError("Age cannot be negative!")
 
-# # # # # # # # # try:
-# # # # # # # # #     x = int("abc")  # causes ValueError
-# # # # # # # # # except ValueError as e:
-# # # # # # # # #     print("Error:", e)
-
-# # # # # # # # # # Output:
-# # # # # # # # # # Error: invalid literal for int() with base 10: 'abc'
+# # # # # # # # #     return f"Age is {age}"
 
 
-# # # # # # # # # # ZeroDivisionError
+# # # # # # # # # print(check_age(25))   # Age is 25
+# # # # # # # # # print(check_age(-5))   # Raises ValueError
 
-# # # # # # # # # try:
-# # # # # # # # #     result = 10 / 0  # causes ZeroDivisionError
-# # # # # # # # # except ZeroDivisionError as e:
-# # # # # # # # #     print("Error:", e)
-
-# # # # # # # # # # Output:
-# # # # # # # # # # Error: division by zero
-
-# # # # # # # # # Getting Information on Exceptions
+# # # # # # # # # Exception Hierarchy
 # # # # # # # # #
-# # # # # # # # # When an exception occurs, it often carries details about the error:
-# # # # # # # # # the type of exception, e.g., SyntaxError, ZeroDivisionError.
+# # # # # # # # # Python organizes exceptions in a hierarchical tree,
+# # # # # # # # # where some exceptions are subclasses of others.
 # # # # # # # # #
-# # # # # # # # # The following are some examples:
+# # # # # # # # # The base class for all exceptions is BaseException.
 
 
-# # # # # # # # # ValueError
+# # # # # # # # # Simplified hierarchy:
+# # # # # # # # #
+# # # # # # # # # BaseException
+# # # # # # # # # └── Exception
+# # # # # # # # #     ├── ArithmeticError
+# # # # # # # # #     │   ├── FloatingPointError
+# # # # # # # # #     │   ├── OverflowError
+# # # # # # # # #     │   └── ZeroDivisionError
+# # # # # # # # #     │
+# # # # # # # # #     ├── AttributeError
+# # # # # # # # #     ├── BufferError
+# # # # # # # # #     ├── EOFError
+# # # # # # # # #     ├── ImportError
+# # # # # # # # #     │   └── ModuleNotFoundError
+# # # # # # # # #     │
+# # # # # # # # #     ├── LookupError
+# # # # # # # # #     │   ├── IndexError
+# # # # # # # # #     │   └── KeyError
+# # # # # # # # #     │
+# # # # # # # # #     ├── MemoryError
+# # # # # # # # #     ├── NameError
+# # # # # # # # #     ├── OSError
+# # # # # # # # #     │   ├── FileNotFoundError
+# # # # # # # # #     │   ├── PermissionError
+# # # # # # # # #     │   └── TimeoutError
+# # # # # # # # #     │
+# # # # # # # # #     ├── RuntimeError
+# # # # # # # # #     │   ├── NotImplementedError
+# # # # # # # # #     │   └── RecursionError
+# # # # # # # # #     │
+# # # # # # # # #     ├── SyntaxError
+# # # # # # # # #     ├── SystemError
+# # # # # # # # #     ├── TypeError
+# # # # # # # # #     └── ValueError
+# # # # # # # # #
+# # # # # # # # #
+# # # # # # # # # Important:
+# # # # # # # # # More specific exceptions should generally be caught first,
+# # # # # # # # # followed by more general exceptions.
 
 # # # # # # # # try:
-# # # # # # # #     x = int("abc")  # causes ValueError
-# # # # # # # # except ValueError as e:
-# # # # # # # #     print("Error:", e)
+# # # # # # # #     value = int("abc")
 
-# # # # # # # # # Output:
-# # # # # # # # # Error: invalid literal for int() with base 10: 'abc'
+# # # # # # # # except ValueError:
+# # # # # # # #     print("ValueError occurred")
 
-
-# # # # # # # # # ZeroDivisionError
-
-# # # # # # # # try:
-# # # # # # # #     result = 10 / 0  # causes ZeroDivisionError
-# # # # # # # # except ZeroDivisionError as e:
-# # # # # # # #     print("Error:", e)
-
-# # # # # # # # # Output:
-# # # # # # # # # Error: division by zero
+# # # # # # # # except Exception:
+# # # # # # # #     print("Some other exception occurred")
 
 
-# # # # # # # # # The else Clause
-# # # # # # # # #
-# # # # # # # # # The else clause runs only if no exception occurs in the try block.
+# # # # # # # # Exception Hierarchy
 
-# # # # # # # # try:
-# # # # # # # #     num = int(input("Enter a number: "))
-# # # # # # # #     result = 10 / num
+# # # # # # # try:
+# # # # # # #     lst = [1, 2, 3]
+# # # # # # #     print(lst[5])
 
-# # # # # # # # except ValueError as v:
-# # # # # # # #     print(v)
+# # # # # # # except ValueError:
+# # # # # # #     print("Caught ValueError")
 
-# # # # # # # # except ZeroDivisionError as e:
-# # # # # # # #     print(e)
+# # # # # # # except KeyError:
+# # # # # # #     print("Caught KeyError")
 
-# # # # # # # # else:
-# # # # # # # #     print("Success! Result is", result, ".")
+# # # # # # # except IndexError:
+# # # # # # #     print("Caught IndexError")
 
-# # # # # # # #     # The finally Clause
-# # # # # # # # #
-# # # # # # # # # The finally clause always runs, no matter what happens
-# # # # # # # # # in the try or except blocks.
-# # # # # # # # #
-# # # # # # # # # It is used for cleanup tasks, such as closing files,
-# # # # # # # # # releasing resources, or ending connections.
-
-
-# # # # # # # # try:
-# # # # # # # #     f = open("data.txt", "r")
-# # # # # # # #     content = f.read()
-# # # # # # # #     print(content)
-
-# # # # # # # # except FileNotFoundError as fe:
-# # # # # # # #     print(fe)
-
-# # # # # # # # finally:
-# # # # # # # #     if 'f' in locals():
-# # # # # # # #         f.close()  # Always closes the file
-
-
-# # # # # # # # Using Exceptions for Flow Control
-# # # # # # # #
-# # # # # # # # Sometimes you can use exceptions to manage the flow of your program,
-# # # # # # # # especially in cases where an operation may fail.
-
-# # # # # # # while True:
-# # # # # # #     try:
-# # # # # # #         user_input = input("Enter a positive integer: ")
-# # # # # # #         n = int(user_input)  # Might raise ValueError
-
-# # # # # # #         if n > 0:
-# # # # # # #             break  # Exit loop if input is valid
-
-# # # # # # #     except ValueError:
-# # # # # # #         print(f'"{user_input}" cannot be converted to an int!')
-
-# # # # # # # print(f'You have entered {n}, a positive integer.')
-
-
-
-# # # # # # # Raising your Own Exception
+# # # # # # # except Exception:
+# # # # # # #     print("Caught general exception")
 # # # # # # #
-# # # # # # # You can manually raise an exception using the raise keyword.
 # # # # # # #
-# # # # # # # Syntax:
-# # # # # # # raise ExceptionType("Error message")
-# # # # # # #
-# # # # # # # raise: signal errors manually.
-# # # # # # # ExceptionType: can be built-in (like ValueError)
-# # # # # # #                or a custom exception class.
-# # # # # # # "Error message": a description of what went wrong.
+# # # # # # import time
+
+# # # # # # current_timestamp = time.time()
+
+# # # # # # print(current_timestamp)
+
+# # # # # # print(time.ctime(current_timestamp))
+
+# # # # # # print(time.localtime(current_timestamp))
 
 
-# # # # # # def check_age(age):
-# # # # # #     if age < 0:
-# # # # # #         raise ValueError("Age cannot be negative!")
+# # # # # import time
 
-# # # # # #     return f"Age is {age}"
+# # # # # current_timestamp = time.time()
 
+# # # # # print(current_timestamp)
 
-# # # # # # print(check_age(25))   # Age is 25
-# # # # # # print(check_age(-5))   # Raises ValueError
+# # # # # current_time = time.ctime()
+# # # # # print(current_time)
 
-# # # # # # Exception Hierarchy
-# # # # # #
-# # # # # # Python organizes exceptions in a hierarchical tree,
-# # # # # # where some exceptions are subclasses of others.
-# # # # # #
-# # # # # # The base class for all exceptions is BaseException.
+# # # # # local = time.localtime()
+
+# # # # # print(local.tm_yday)
 
 
-# # # # # # Simplified hierarchy:
-# # # # # #
-# # # # # # BaseException
-# # # # # # └── Exception
-# # # # # #     ├── ArithmeticError
-# # # # # #     │   ├── FloatingPointError
-# # # # # #     │   ├── OverflowError
-# # # # # #     │   └── ZeroDivisionError
-# # # # # #     │
-# # # # # #     ├── AttributeError
-# # # # # #     ├── BufferError
-# # # # # #     ├── EOFError
-# # # # # #     ├── ImportError
-# # # # # #     │   └── ModuleNotFoundError
-# # # # # #     │
-# # # # # #     ├── LookupError
-# # # # # #     │   ├── IndexError
-# # # # # #     │   └── KeyError
-# # # # # #     │
-# # # # # #     ├── MemoryError
-# # # # # #     ├── NameError
-# # # # # #     ├── OSError
-# # # # # #     │   ├── FileNotFoundError
-# # # # # #     │   ├── PermissionError
-# # # # # #     │   └── TimeoutError
-# # # # # #     │
-# # # # # #     ├── RuntimeError
-# # # # # #     │   ├── NotImplementedError
-# # # # # #     │   └── RecursionError
-# # # # # #     │
-# # # # # #     ├── SyntaxError
-# # # # # #     ├── SystemError
-# # # # # #     ├── TypeError
-# # # # # #     └── ValueError
-# # # # # #
-# # # # # #
-# # # # # # Important:
-# # # # # # More specific exceptions should generally be caught first,
-# # # # # # followed by more general exceptions.
+# # # # import time
 
-# # # # # try:
-# # # # #     value = int("abc")
+# # # # current_timestamp = time.time()
 
-# # # # # except ValueError:
-# # # # #     print("ValueError occurred")
+# # # # print(current_timestamp)
 
-# # # # # except Exception:
-# # # # #     print("Some other exception occurred")
+# # # # current_time = time.ctime()
+# # # # print(current_time)
+
+# # # # local = time.localtime()
+# # # # print(local.tm_hour)
 
 
-# # # # # Exception Hierarchy
+# # # # log_time = time.localtime()
 
-# # # # try:
-# # # #     lst = [1, 2, 3]
-# # # #     print(lst[5])
+# # # # log_message = (
+# # # #     f"{log_time.tm_year}-"
+# # # #     f"{log_time.tm_mon:02d}-"
+# # # #     f"{log_time.tm_mday:02d} "
+# # # #     f"{log_time.tm_hour:02d}:"
+# # # #     f"{log_time.tm_min:02d}:"
+# # # #     f"{log_time.tm_sec:02d} "
+# # # #     f"Server started successfully."
+# # # # )
 
-# # # # except ValueError:
-# # # #     print("Caught ValueError")
+# # # # print(log_message)
 
-# # # # except KeyError:
-# # # #     print("Caught KeyError")
+# # # # print()
 
-# # # # except IndexError:
-# # # #     print("Caught IndexError")
-
-# # # # except Exception:
-# # # #     print("Caught general exception")
-# # # #
-# # # #
-# # # import time
-
-# # # current_timestamp = time.time()
-
-# # # print(current_timestamp)
-
-# # # print(time.ctime(current_timestamp))
-
-# # # print(time.localtime(current_timestamp))
-
-
+# # from datetime import date
 # # import time
 
-# # current_timestamp = time.time()
+# # # # countdown timer
 
-# # print(current_timestamp)
+# # # for number in range(5, 0, -1):
 
-# # current_time = time.ctime()
-# # print(current_time)
+# # #     print(f"Shutting down in {number}...")
 
-# # local = time.localtime()
+# # #     time.sleep(2)
 
-# # print(local.tm_yday)
+# # # print()
 
+# # # print("System process started!")
 
-# import time
+# # today = date.today()
 
-# current_timestamp = time.time()
+# # print(today)
+# # print(type(today))
+# # print(today.day)
 
-# print(current_timestamp)
-
-# current_time = time.ctime()
-# print(current_time)
-
-# local = time.localtime()
-# print(local.tm_hour)
+# # date_string = today.isoformat()
+# # print(date_string)
+# # print(type(date_string))
 
 
-# log_time = time.localtime()
+# from datetime import datetime as date, timedelta
 
-# log_message = (
-#     f"{log_time.tm_year}-"
-#     f"{log_time.tm_mon:02d}-"
-#     f"{log_time.tm_mday:02d} "
-#     f"{log_time.tm_hour:02d}:"
-#     f"{log_time.tm_min:02d}:"
-#     f"{log_time.tm_sec:02d} "
-#     f"Server started successfully."
-# )
+# today = date.today()
 
-# print(log_message)
+# yesterday = today - timedelta(seconds=1)
 
-# print()
+# print(today.strftime("%Y-%m-%d %H:%M:%S"))
+# print(yesterday.strftime("%Y-%m-%d %H:%M:%S"))
 
 
-# countdown timer
-import time
+from datetime import datetime
+import pytz
 
-for number in range(5, 0, -1):
+utc_time = datetime.now(pytz.utc)
 
-    print(f"Shutting down in {number}...")
-
-    time.sleep(2)
+print(utc_time)
 
 print()
 
-print("System process started!")
+philippines = utc_time.astimezone(
+    pytz.timezone("Asia/Manila")
+)
+
+new_york = utc_time.astimezone(
+    pytz.timezone("America/New_York")
+)
+
+tokyo = utc_time.astimezone(
+    pytz.timezone("Asia/Tokyo")
+)
+# print(today.strftime("%Y-%m-%d %H:%M:%S"))
+# print(yesterday.strftime("%Y-%m-%d %H:%M:%S"))
+print("Philippines :", philippines.strftime("%Y-%m-%d %H:%M:%S"))
+print("New York    :", new_york.strftime("%Y-%m-%d %H:%M:%S"))
+print("Tokyo       :", tokyo.strftime("%Y-%m-%d %H:%M:%S"))
+
+print()
