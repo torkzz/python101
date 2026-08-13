@@ -1,246 +1,60 @@
-# # # # # # # from random import randrange
-# # # # # from collections import defaultdict
-
-# # # # # # # expenses = [
-# # # # # # #     ("Groceries", 1940.33),
-# # # # # # #     ("Lunch", 180.00),
-# # # # # # #     ("Utilities", 2000.00),
-# # # # # # #     ("Groceries", 1366.25),
-# # # # # # #     ("Utilities", 1600.00),
-# # # # # # #     ("Lunch", 200.00)
-# # # # # # # ]
-
-# # # # # # # enumerated_expenses = [
-# # # # # # #     [idx, expense]
-# # # # # # #     for idx, expense in enumerate(expenses, start=1)
-# # # # # # # ]
-
-# # # # # # # print(*enumerated_expenses)
-
-
-# # # # # # from collections import defaultdict
-
-# # # # # # expenses = [("Groceries", 1940.33), ("Lunch", 180.00), ("Utilities", 2000.00),
-# # # # # #             ("Groceries", 1366.25), ("Utilities", 1600.00), ("Lunch", 200.00)]
-
-# # # # # # agg = defaultdict(float)
-# # # # # # for (category, amount) in expenses:
-# # # # # #     agg[category] += amount
-
-# # # # # # print(dict(agg))
-# # # # # employees = {
-# # # # #     "Liz": "HR",
-# # # # #     "Abby": "Internal Support I",
-# # # # #     "Jun": "HR",
-# # # # #     "Ely": "Supervisor",
-# # # # #     "Marie": "Internal Support I",
-# # # # #     "Jules": "HR",
-# # # # #     "Arnold": "Supervisor"
-# # # # # }
-
-# # # # # employee_assignments = defaultdict(list)
-
-# # # # # for k, v in employees.items():
-# # # # #     # {"HR": ["Liz", "Jun", "Jules"]}
-# # # # #     employee_assignments[v].append(k)
-# # # # #     print(dict(employee_assignments))
-# # # # from collections import OrderedDict
-
-# # # # my_dict = {
-# # # #     "one": 1,
-# # # #     "two": 2,
-# # # #     "three": 3,
-# # # #     "four": 4
-# # # # }
-
-# # # # od = OrderedDict(my_dict)
-# # # # od["five"] = 5
-# # # # print(dict(od))
-# # # # del(od["two"])
-# # # # print(dict(od))
-# # # # od.move_to_end("one")
-# # # # print(dict(od))
-
-
-# # # # od.popitem(last=False)
-# # # # print(dict(od))
-
-# # # # od["two"] = "II"
-# # # # od.move_to_end("two", last=False)
-# # # # print(dict(od))
-# # # # If you mean Python's **`deque` (double-ended queue)**, import it from `collections`:
-
-# # # # ```python
-# # # # from collections import deque
-# # # # ```
-
-# # # # ### Basic example
-
-# # # # ```python
-# # # # from collections import deque
-
-# # # # my_deque = deque(["A", "B", "C"])
-
-# # # # print(my_deque)
-# # # # ```
-
-# # # # Output:
-
-# # # # ```text
-# # # # deque(['A', 'B', 'C'])
-# # # # ```
-
-# # # # ### Add to either end
-
-# # # # ```python
-# # # # my_deque.append("D")       # right side
-# # # # my_deque.appendleft("Z")   # left side
-
-# # # # print(my_deque)
-# # # # ```
-
-# # # # ```text
-# # # # deque(['Z', 'A', 'B', 'C', 'D'])
-# # # # ```
-
-# # # # ### Remove from either end
-
-# # # # ```python
-# # # # my_deque.pop()       # removes D
-# # # # my_deque.popleft()   # removes Z
-# # # # ```
-
-# # # # ### Think of it like this
-
-# # # # ```text
-# # # # appendleft()  ← [ A ][ B ][ C ] →  append()
-# # # # popleft()     → [ A ][ B ][ C ] ←  pop()
-# # # # ```
-
-# # # # A `deque` is particularly useful when you need **fast insertion/removal from both ends**.
-
-# # # # For example, a queue:
-
-# # # # ```python
-# # # # from collections import deque
-
-# # # # queue = deque()
-
-# # # # queue.append("Kevin")
-# # # # queue.append("John")
-# # # # queue.append("Mary")
-
-# # # # print(queue.popleft())  # Kevin
-# # # # print(queue.popleft())  # John
-# # # # ```
-
-# # # # Unlike doing `list.pop(0)`, `deque.popleft()` is designed for this use case and is **O(1)**.
-# # # from collections import deque
-
-# # # fruits = ["Apple", "Banana", "Cherry", "Durian"]
-
-# # # my_deque = deque(fruits, maxlen=10)
-
-# # # print(my_deque)
-
-# # # my_deque.append("Strawberry")
-# # # my_deque.appendleft("Coconut")
-# # # print(my_deque)
-
-# # # my_deque.insert(4, "Cacao")
-# # # print(my_deque)
-# # # print(my_deque)
-
-# # # my_deque.insert(4, "Cacao")
-# # # print(my_deque)
-
-# # # my_deque.append("Apple")
-# # # print(my_deque)
-
-# # # print(my_deque.count("Apple"))
-
-# # # print(my_deque.pop())
-# # # print(my_deque.popleft())
-# # # print(my_deque)
-
-
-# # from collections import deque
-
-# # fruits = ["Apple", "Banana", "Cherry", "Durian"]
-
-# # my_deque = deque(fruits, maxlen=10)
-
-# # print(my_deque)
-
-# # my_deque.append("Strawberry")
-# # my_deque.appendleft("Coconut")
-# # print(my_deque)
-
-# # my_deque.insert(4, "Cacao")
-# # print(my_deque)
-
-# # my_deque.insert(4, "Cacao")
-# # print(my_deque)
-
-# # my_deque.append("Apple")
-# # print(my_deque)
-
-# # print(my_deque.count("Apple"))
-
-# # print(my_deque.pop())
-# # print(my_deque.popleft())
-# # print(my_deque)
-
-# # my_deque.remove("Apple")
-# # print(my_deque)
-
-# # my_deque.extend(["Rambutan", "Chico", "Guava"])
-# # print(my_deque)
-
-# # my_deque.rotate(3)
-# # print(my_deque)
-
-
-
-# from collections import deque
-
-# fruits = ["Apple", "Banana", "Cherry", "Durian"]
-# my_deque = deque(fruits, maxlen=10)
-
-# print(my_deque)
-
-# my_deque.append("Strawberry")
-# my_deque.appendleft("Coconut")
-# print(my_deque)
-
-# my_deque.insert(4,"Cacao")
-# print(my_deque)
-
-# my_deque.append("Apple")
-# print(my_deque)
-# print(my_deque.count("Apple"))
-
-# print(my_deque.pop())
-# print(my_deque.popleft())
-# print(my_deque)
-
-# my_deque.remove("Apple")
-# print(my_deque)
-
-# my_deque.extend(["Rambutan", "Chico", "Guava"])
-# print(my_deque)
-
-# my_deque.rotate(-3)
-# print(my_deque)
-
-# my_deque.reverse()
-# print(my_deque)
-
-# print(len(my_deque))
-# my_deque.extend(["Orange", "Grapes", "Kiwi", "Peach"])
-
-# my_deque.clear()
-
-
-#argument packing and unpacking
-#
+"""
+Main Entrypoint / Interactive CLI Navigator for Python 101 Modules
+"""
+
+import sys
+import subprocess
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent
+
+MODULES = {
+    "1": ("00_guidelines/00_pep8_rules.py", "PEP 8 Rules & Guidelines"),
+    "2": ("00_guidelines/01_venv_setup.py", "Venv & Requirements Inspector"),
+    "3": ("01_basics/01_hello_world.py", "Basics: Data Types & Operators"),
+    "4": ("01_basics/02_interactive_inputs.py", "Interactive Calculator & Type Inspector"),
+    "5": ("02_operators_and_collections/08_dict_deep_dive.py", "Dict Deep Dive"),
+    "6": ("02_operators_and_collections/09_interactive_gradebook.py", "CLI Student Gradebook"),
+    "7": ("02_operators_and_collections/10_deque_collections.py", "Deque (Double-Ended Queue)"),
+    "8": ("03_control_flow_and_data/01_control_flow.py", "Control Flow & Generators"),
+    "9": ("03_control_flow_and_data/02_regex_and_json.py", "Regex & JSON Handling"),
+    "10": ("04_functional_programming/01_lambdas.py", "Lambda Functions & Map/Filter"),
+    "11": ("04_functional_programming/02_args_and_kwargs.py", "Packing & Unpacking (*args, **kwargs)"),
+    "12": ("05_external_libraries/01_faker_basics.py", "External Libraries: Faker"),
+    "13": ("projects/interactive_quiz.py", "Interactive Quiz App"),
+    "14": ("projects/number_guessing.py", "Number Guessing Game"),
+}
+
+
+def run_module(relative_path: str) -> None:
+    """Executes target script with current Python interpreter."""
+    target_path = ROOT_DIR / relative_path
+    if not target_path.exists():
+        print(f"Error: File not found ({target_path})")
+        return
+
+    print(f"\n--- Running {relative_path} ---\n")
+    subprocess.run([sys.executable, str(target_path)])
+
+
+def main() -> None:
+    while True:
+        print("\n=== Python 101 Learning Modules ===")
+        for key, (_, title) in MODULES.items():
+            print(f"{key:>2}. {title}")
+        print(" q. Exit")
+
+        choice = input("\nSelect module to run: ").strip().lower()
+        if choice in ("q", "quit", "exit"):
+            print("Goodbye!")
+            break
+
+        if choice in MODULES:
+            rel_path, _ = MODULES[choice]
+            run_module(rel_path)
+        else:
+            print("Invalid selection, try again.")
+
+
+if __name__ == "__main__":
+    main()
