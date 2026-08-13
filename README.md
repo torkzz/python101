@@ -44,7 +44,7 @@ python3 main.py
 - [`04_sets.py`](02_operators_and_collections/04_sets.py): Set creation and removing list duplicates.
 - [`05_math_module.py`](02_operators_and_collections/05_math_module.py): `math` library functions (`sqrt`, `ceil`, `floor`, `factorial`).
 - [`06_random_module.py`](02_operators_and_collections/06_random_module.py): `random` library usage (`randint`, `choice`, `shuffle`).
-- [`07_strings.py`](02_operators_and_collections/07_strings.py): String methods (`strip`, casing, searching).
+- [`07_strings.py`](02_operators_and_collections/07_strings.py): String methods (`strip`, casing, searching, `[start:stop:step]` slicing).
 - [`08_dict_deep_dive.py`](02_operators_and_collections/08_dict_deep_dive.py): Dict methods (`get`, `setdefault`), merge operator `|`, and dict comprehensions.
 - [`09_interactive_gradebook.py`](02_operators_and_collections/09_interactive_gradebook.py): CLI Gradebook app using dicts and sets.
 - [`10_deque_collections.py`](02_operators_and_collections/10_deque_collections.py): `collections.deque` operations (`appendleft`, `popleft`, `rotate`, bounded `maxlen`).
@@ -52,6 +52,8 @@ python3 main.py
 ### 5. Control Flow & Data Processing (`03_control_flow_and_data/`)
 - [`01_control_flow.py`](03_control_flow_and_data/01_control_flow.py): `enumerate()`, generator functions (`yield`), list comprehensions.
 - [`02_regex_and_json.py`](03_control_flow_and_data/02_regex_and_json.py): Regular expressions (`re`) and JSON serialization (`json`).
+- [`03_csv_and_match_case.py`](03_control_flow_and_data/03_csv_and_match_case.py): Reading CSV files (`csv.DictReader`, `csv.reader`, `next()`), structural pattern matching (`match / case`).
+- [`04_sqlite_basics.py`](03_control_flow_and_data/04_sqlite_basics.py): SQLite DB connectivity (`sqlite3`), querying (`WHERE`, `LIMIT`, `OFFSET`), and row retrieval (`fetchall()`, `fetchone()`, `fetchmany()`).
 
 ### 6. Functional Programming (`04_functional_programming/`)
 - [`01_lambdas.py`](04_functional_programming/01_lambdas.py): Lambda syntax, default parameters, `map()`, and `filter()`.
@@ -59,6 +61,8 @@ python3 main.py
 
 ### 7. External Libraries (`05_external_libraries/`)
 - [`01_faker_basics.py`](05_external_libraries/01_faker_basics.py): Mock data generation with `faker` and nested dict structures.
+- [`02_csv_writing_with_faker.py`](05_external_libraries/02_csv_writing_with_faker.py): Writing CSV data with `faker` using `csv.writer` (positional rows) and `csv.DictWriter` (dictionary records).
+- [`03_sqlite_faker_inserts.py`](05_external_libraries/03_sqlite_faker_inserts.py): SQLite schema initialization (`CREATE TABLE IF NOT EXISTS`), single insert (`execute`), batch insert (`executemany`), and `Faker` integration.
 
 ### 8. Interactive Projects (`projects/`)
 - [`interactive_quiz.py`](projects/interactive_quiz.py): CLI multiple-choice quiz game.

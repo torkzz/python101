@@ -18,11 +18,15 @@ MODULES = {
     "7": ("02_operators_and_collections/10_deque_collections.py", "Deque (Double-Ended Queue)"),
     "8": ("03_control_flow_and_data/01_control_flow.py", "Control Flow & Generators"),
     "9": ("03_control_flow_and_data/02_regex_and_json.py", "Regex & JSON Handling"),
-    "10": ("04_functional_programming/01_lambdas.py", "Lambda Functions & Map/Filter"),
-    "11": ("04_functional_programming/02_args_and_kwargs.py", "Packing & Unpacking (*args, **kwargs)"),
-    "12": ("05_external_libraries/01_faker_basics.py", "External Libraries: Faker"),
-    "13": ("projects/interactive_quiz.py", "Interactive Quiz App"),
-    "14": ("projects/number_guessing.py", "Number Guessing Game"),
+    "10": ("03_control_flow_and_data/03_csv_and_match_case.py", "CSV Parsing & Match/Case"),
+    "11": ("03_control_flow_and_data/04_sqlite_basics.py", "SQLite Queries & Fetch Methods"),
+    "12": ("04_functional_programming/01_lambdas.py", "Lambda Functions & Map/Filter"),
+    "13": ("04_functional_programming/02_args_and_kwargs.py", "Packing & Unpacking (*args, **kwargs)"),
+    "14": ("05_external_libraries/01_faker_basics.py", "External Libraries: Faker"),
+    "15": ("05_external_libraries/02_csv_writing_with_faker.py", "Writing CSV with Faker (writer & DictWriter)"),
+    "16": ("05_external_libraries/03_sqlite_faker_inserts.py", "SQLite Schema Creation & Faker Population"),
+    "17": ("projects/interactive_quiz.py", "Interactive Quiz App"),
+    "18": ("projects/number_guessing.py", "Number Guessing Game"),
 }
 
 
