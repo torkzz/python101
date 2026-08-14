@@ -24,7 +24,9 @@ python3 main.py
 6. [Functional Programming (`04_functional_programming/`)](#6-functional-programming-04_functional_programming)
 7. [External Libraries (`05_external_libraries/`)](#7-external-libraries-05_external_libraries)
 8. [Object-Oriented Programming (`06_oop/`)](#8-object-oriented-programming-06_oop)
-9. [Interactive Projects (`projects/`)](#9-interactive-projects-projects)
+9. [Unit Testing (`07_testing/`)](#9-unit-testing-07_testing)
+10. [AWS Cloud (`08_aws_cloud/`)](#10-aws-cloud-08_aws_cloud)
+11. [Interactive Projects (`projects/`)](#11-interactive-projects-projects)
 
 ---
 
@@ -57,12 +59,15 @@ python3 main.py
 - [`03_csv_and_match_case.py`](03_control_flow_and_data/03_csv_and_match_case.py): Reading CSV files (`csv.DictReader`, `csv.reader`, `next()`), structural pattern matching (`match / case`).
 - [`04_sqlite_basics.py`](03_control_flow_and_data/04_sqlite_basics.py): SQLite DB connectivity (`sqlite3`), querying (`WHERE`, `LIMIT`, `OFFSET`), and row retrieval (`fetchall()`, `fetchone()`, `fetchmany()`).
 - [`05_asyncio_basics.py`](03_control_flow_and_data/05_asyncio_basics.py): Asynchronous programming (`async def`, `await`, `asyncio.run()`), offloading blocking I/O to background threads using `asyncio.to_thread()`, and concurrent execution using `asyncio.gather()`.
+- [`06_exceptions_handling.py`](03_control_flow_and_data/06_exceptions_handling.py): Handling errors with `try`, `except`, `else` (runs on success), `finally` (always runs), and `raise`.
+- [`07_file_io_basics.py`](03_control_flow_and_data/07_file_io_basics.py): File handling (`r`, `w`, `a`), line reading (`readlines`), and modern path management with `pathlib.Path`.
 
 ### 6. Functional Programming (`04_functional_programming/`)
 - [`01_lambdas.py`](04_functional_programming/01_lambdas.py): Lambda syntax, default parameters, `map()`, and `filter()`.
 - [`02_args_and_kwargs.py`](04_functional_programming/02_args_and_kwargs.py): Packing (`*args` tuple, `**kwargs` dict) and unpacking sequences/dictionaries into functions.
 - [`03_decorators_basics.py`](04_functional_programming/03_decorators_basics.py): Decorator pattern basics, wrapper functions (`inner_method`), decorator `@` syntax, and function behavior modification.
 - [`04_decorators_with_args.py`](04_functional_programming/04_decorators_with_args.py): Decorators with function arguments, wrapper parameter interception (`multiply_values(x, y)`), definition-time execution vs call-time execution.
+- [`05_logging_decorators.py`](04_functional_programming/05_logging_decorators.py): Standard `logging` module integration (`getLogger`, `basicConfig`, `l.debug`, `l.warning`, `l.error`) with custom header banner decorators (`@prepend_log`).
 
 ### 7. External Libraries (`05_external_libraries/`)
 - [`01_faker_basics.py`](05_external_libraries/01_faker_basics.py): Mock data generation with `faker` and nested dict structures.
@@ -71,12 +76,21 @@ python3 main.py
 - [`04_requests_http_basics.py`](05_external_libraries/04_requests_http_basics.py): Making HTTP GET and POST requests using `requests`, passing custom headers, JSON body payload, and parsing JSON response outputs.
 - [`05_api_deck_of_cards.py`](05_external_libraries/05_api_deck_of_cards.py): Working with external REST APIs (Deck of Cards API), extracting dynamic parameters (`deck_id`), and iterating over cards collections.
 - [`06_aiohttp_async_requests.py`](05_external_libraries/06_aiohttp_async_requests.py): Native asynchronous HTTP requests with `aiohttp`, managing session lifecycles (`async with aiohttp.ClientSession()`), non-blocking response reading (`await r.text()`), and multi-URL concurrency (`asyncio.gather()`).
+- [`07_web_scraping_bs4.py`](05_external_libraries/07_web_scraping_bs4.py): HTML DOM parsing with `BeautifulSoup4`, finding elements (`find`, `find_all`), and text extraction (`get_text().strip()`).
 
 ### 8. Object-Oriented Programming (`06_oop/`)
 - [`01_mro_and_inheritance.py`](06_oop/01_mro_and_inheritance.py): Multiple inheritance, Method Resolution Order (MRO), `super()` resolution, and MRO chain inspection using `.mro()`.
 - [`02_abstract_classes.py`](06_oop/02_abstract_classes.py): Abstract Base Classes (`from abc import ABC, abstractmethod`), enforcing interface contracts, `@abstractmethod` decorator, and concrete class inheritance.
+- [`03_properties_and_encapsulation.py`](06_oop/03_properties_and_encapsulation.py): Protected attributes (`_attr`), private mangling (`__attr`), property getters/setters (`@property`, `@setter`), and utility methods (`@staticmethod`).
 
-### 9. Interactive Projects (`projects/`)
+### 9. Unit Testing (`07_testing/`)
+- [`01_unittest_basics.py`](07_testing/01_unittest_basics.py): Standard `unittest` framework, inheriting from `unittest.TestCase`, test assertions (`assertEqual`, `assertNotEqual`), custom failure messages, and `unittest.main()` execution.
+- [`02_unittest_assertions.py`](07_testing/02_unittest_assertions.py): Cheat sheet for `unittest.TestCase` assertions (`assertEqual`, `assertNotEqual`, `assertTrue`, `assertFalse`, `assertIs`, `assertIsNot`, `assertIsNone`, `assertIsNotNone`, `assertIn`, `assertNotIn`, `assertIsInstance`, `assertRaises`), plus `assertEqual` vs `assertIs` (value equality vs object identity).
+
+### 10. AWS Cloud (`08_aws_cloud/`)
+- [`01_lambda_handler_basics.py`](08_aws_cloud/01_lambda_handler_basics.py): Basic structure of AWS Lambda Python functions (`def lambda_handler(event, context)`), logging initialization (`getLogger()`, `setLevel("INFO")`), AWS SDK integration (`boto3`, `botocore.config.Config`), parsing event parameters, and returning API Gateway HTTP JSON responses (`statusCode`, `headers`, `body`).
+
+### 11. Interactive Projects (`projects/`)
 - [`interactive_quiz.py`](projects/interactive_quiz.py): CLI multiple-choice quiz game.
 - [`number_guessing.py`](projects/number_guessing.py): Configurable difficulty number guessing game.
 - [`cmatrix.py`](projects/cmatrix.py): Terminal Matrix rain animation.

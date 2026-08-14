@@ -17,9 +17,9 @@ CLI Execution Flow:
    - Windows (PowerShell):
      .venv\\Scripts\\Activate.ps1
 
-3. Package Management & Requirements:
+3. Package Management & Requirements Installation:
    pip install --upgrade pip
-   pip install faker
+   pip install faker requests aiohttp beautifulsoup4
    pip freeze > requirements.txt
    pip install -r requirements.txt
 
@@ -28,6 +28,7 @@ CLI Execution Flow:
 """
 
 import sys
+import subprocess
 from pathlib import Path
 
 
@@ -47,7 +48,7 @@ def check_active_environment() -> None:
 
 
 def check_requirements_file() -> None:
-    """Inspect requirements.txt file in project root."""
+    """Inspect and simulate requirements installation."""
     req_path = Path(__file__).resolve().parent.parent / "requirements.txt"
 
     print("\n=== Requirements Setup Inspector ===")
@@ -57,6 +58,10 @@ def check_requirements_file() -> None:
         print("Configured Dependencies:")
         for line in content.splitlines():
             print(f"  - {line}")
+
+        print("\n=== Recommended Installation Command ===")
+        print("Run the following command in terminal to install all requirements:")
+        print("  pip install -r requirements.txt")
     else:
         print(f"requirements.txt missing at {req_path}")
 
